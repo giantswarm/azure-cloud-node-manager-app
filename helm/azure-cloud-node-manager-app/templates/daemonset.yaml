@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: {{ .Values.name }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "labels.common" . | nindent 4 }}
+spec:
+  updateStrategy: {{ toYaml .Values.updateStrategy | nindent 4 }}
+  selector:
+    matchLabels:
+      {{- include "labels.selector" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "labels.common" . | nindent 8 }}
+    spec:
+      priorityClassName: system-cluster-critical
+      securityContext:
+        runAsUser: 0
+        runAsGroup: 0
+      serviceAccountName: {{ .Values.name }}
+      hostNetwork: false
+      dnsPolicy: Default  # Don't use cluster DNS.
+      tolerations:
+      - effect: NoSchedule
+        operator: "Exists"
+        key: node-role.kubernetes.io/master
+      nodeSelector:
+        node-role.kubernetes.io/master: ""
+      containers:
+      - name: node-cache
+        image: "{{ .Values.image.registry }}/{{ .Values.image.name }}:{{ .Values.image.tag }}"
+        {{- if .Values.resources }}
+        resources: {{ toYaml .Values.resources | nindent 8 }}
+        {{- end }}
+        args:
+        - --tls-cipher-suites=TLS_AES_128_GCM_SHA256,TLS_AES_256_GCM_SHA384,TLS_CHACHA20_POLY1305_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305,TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256,TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305,TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256,TLS_RSA_WITH_3DES_EDE_CBC_SHA,TLS_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_128_GCM_SHA256,TLS_RSA_WITH_AES_256_CBC_SHA,TLS_RSA_WITH_AES_256_GCM_SHA384
+        - --cloud-config=/etc/kubernetes/config/azure.yaml
+        - --kubeconfig=/etc/kubernetes/kubeconfig/controller-manager.yaml
+        - --master=https://kubernetes.default:443
+        - --use-instance-metadata=true
+        - --wait-routes=true
+        - --logtostderr=true
+        - --v=2
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+        volumeMounts:
+        - mountPath: /etc/kubernetes/
+          name: etc-kubernetes
+          readOnly: true
+        {{- if .Values.resources }}
+        resources: {{ toYaml .Values.resources | nindent 10 }}
+        {{- end }}
+        livenessProbe:
+          httpGet:
+            host: 127.0.0.1
+            path: /healthz
+            port: 10251
+          initialDelaySeconds: 15
+          timeoutSeconds: 15
+      volumes:
+      - hostPath:
+          path: /etc/kubernetes
+        name: etc-kubernetes
