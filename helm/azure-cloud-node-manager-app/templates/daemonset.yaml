@@ -20,8 +20,8 @@ spec:
         runAsUser: 0
         runAsGroup: 0
       serviceAccountName: {{ .Values.name }}
-      hostNetwork: false
-      dnsPolicy: Default  # Don't use cluster DNS.
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
       tolerations:
       - effect: NoSchedule
         operator: "Exists"
