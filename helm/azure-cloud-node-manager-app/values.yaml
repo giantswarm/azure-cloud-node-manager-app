@@ -10,9 +10,6 @@ image:
   name: giantswarm/azure-cloud-node-manager
   tag: v1.1.8
 
-ports:
-  healthcheck: 10263
-
 resources:
   limits:
     cpu: 200m
