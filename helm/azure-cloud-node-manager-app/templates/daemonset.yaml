@@ -35,6 +35,8 @@ spec:
         resources: {{ toYaml .Values.resources | nindent 8 }}
         {{- end }}
         args:
+        - --kubeconfig=/etc/kubernetes/kubeconfig/controller-manager.yaml
+        - --use-instance-metadata="true"
         - --wait-routes=true
         - --node-name="$(K8S_NODE_NAME)"
         - --logtostderr=true
