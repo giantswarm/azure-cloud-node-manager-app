@@ -43,6 +43,7 @@ spec:
         - --wait-routes=true
         - --node-name="$(K8S_NODE_NAME)"
         - --logtostderr=true
+        - --port={{ .Values.ports.healthcheck }}
         - --v=2
         env:
         - name: K8S_NODE_NAME
@@ -63,7 +64,7 @@ spec:
           httpGet:
             host: 127.0.0.1
             path: /healthz
-            port: 10251
+            port: {{ .Values.ports.healthcheck }}
           initialDelaySeconds: 15
           timeoutSeconds: 15
       volumes:
