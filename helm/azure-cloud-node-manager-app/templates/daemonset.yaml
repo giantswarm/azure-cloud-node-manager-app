@@ -41,8 +41,14 @@ spec:
         - --master=https://kubernetes.default:443
         - --use-instance-metadata=true
         - --wait-routes=true
+        - --node-name="$(K8S_NODE_NAME)"
         - --logtostderr=true
         - --v=2
+        env:
+        - name: K8S_NODE_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName
         securityContext:
           allowPrivilegeEscalation: false
           privileged: false
