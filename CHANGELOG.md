@@ -7,6 +7,10 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Fixed
+
+- Removed NodeSelector that was creating pods in the Master nodes only.
+
 ## [1.1.8-gs2] - 2022-03-16
 
 ### Changed

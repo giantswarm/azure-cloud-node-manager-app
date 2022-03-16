@@ -24,8 +24,6 @@ spec:
       dnsPolicy: ClusterFirstWithHostNet
       tolerations:
       - operator: "Exists"
-      nodeSelector:
-        node-role.kubernetes.io/master: ""
       containers:
       - name: node-cache
         image: "{{ .Values.image.registry }}/{{ .Values.image.name }}:{{ .Values.image.tag }}"
