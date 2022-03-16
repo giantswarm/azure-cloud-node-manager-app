@@ -31,10 +31,9 @@ spec:
         resources: {{ toYaml .Values.resources | nindent 8 }}
         {{- end }}
         args:
-        - --kubeconfig=/etc/kubernetes/kubeconfig/kubelet.yaml
         - --use-instance-metadata=true
         - --wait-routes=true
-        - --node-name="$(K8S_NODE_NAME)"
+        - --node-name=$(K8S_NODE_NAME)
         - --logtostderr=true
         - --v=2
         env:
@@ -45,14 +44,6 @@ spec:
         securityContext:
           allowPrivilegeEscalation: false
           privileged: false
-        volumeMounts:
-        - mountPath: /etc/kubernetes/
-          name: etc-kubernetes
-          readOnly: true
         {{- if .Values.resources }}
         resources: {{ toYaml .Values.resources | nindent 10 }}
         {{- end }}
-      volumes:
-      - hostPath:
-          path: /etc/kubernetes
-        name: etc-kubernetes

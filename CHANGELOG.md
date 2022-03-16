@@ -9,7 +9,7 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ### Fixed
 
-- Fix kubeconfig path.
+- Removed kubeconfig from flags to use inCluster.
 
 ## [1.1.8-gs3] - 2022-03-16
 
