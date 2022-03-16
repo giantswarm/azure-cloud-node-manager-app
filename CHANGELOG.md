@@ -7,6 +7,10 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix kubeconfig path.
+
 ## [1.1.8-gs3] - 2022-03-16
 
 ### Fixed
