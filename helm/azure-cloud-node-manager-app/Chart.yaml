@@ -1,6 +1,7 @@
 apiVersion: v1
 appVersion: 1.24.5
 description: A Helm chart to run Azure Cloud Node Manager
+icon: https://s.giantswarm.io/app-icons/azure/1/dark.svg
 home: https://github.com/giantswarm/azure-cloud-node-manager-app
 name: azure-cloud-node-manager-app
 version: [[ .Version ]]
