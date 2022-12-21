@@ -7,6 +7,8 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+- Fix resources in yaml. it was defined twice
+
 ## [1.24.5-gs1] - 2022-09-14
 
 ### Changed
