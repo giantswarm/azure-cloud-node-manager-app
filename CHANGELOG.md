@@ -7,6 +7,10 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Added
+
+- Add a switch for PolicyExceptions to be able to disable them in CAPZ.
+
 ## [1.24.18-gs4] - 2023-11-28
 
 ### Added
