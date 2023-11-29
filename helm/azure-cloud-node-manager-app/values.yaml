@@ -29,3 +29,5 @@ verticalPodAutoscaler:
 global:
   podSecurityStandards:
     enforced: false
+
+deployPolicyExceptions: true
