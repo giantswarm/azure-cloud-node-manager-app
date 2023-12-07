@@ -7,6 +7,10 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Fixed
+
+- Set team annotation.
+
 ## [1.24.18-gs5] - 2023-11-29
 
 ### Added
