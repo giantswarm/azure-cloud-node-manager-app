@@ -6,7 +6,7 @@ name: azure-cloud-node-manager
 serviceType: managed
 
 image:
-  registry: quay.io
+  registry: gsoci.azurecr.io
   name: giantswarm/azure-cloud-node-manager
   tag: v1.24.18
 
