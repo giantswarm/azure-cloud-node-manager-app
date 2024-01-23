@@ -7,6 +7,8 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+## [1.24.18-gs6] - 2024-01-23
+
 ### Fixed
 
 - Add team label in resources.
@@ -117,7 +119,8 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 - Relax tolerations to make scheduling happen as soon as possible.
 ## [1.1.8-gs1] - 2022-03-14
 
-[Unreleased]: https://github.com/giantswarm/azure-cloud-node-manager-app/compare/v1.24.18-gs5...HEAD
+[Unreleased]: https://github.com/giantswarm/azure-cloud-node-manager-app/compare/v1.24.18-gs6...HEAD
+[1.24.18-gs6]: https://github.com/giantswarm/azure-cloud-node-manager-app/compare/v1.24.18-gs5...v1.24.18-gs6
 [1.24.18-gs5]: https://github.com/giantswarm/azure-cloud-node-manager-app/compare/v1.24.18-gs4...v1.24.18-gs5
 [1.24.18-gs4]: https://github.com/giantswarm/azure-cloud-node-manager-app/compare/v1.24.18-gs3...v1.24.18-gs4
 [1.24.18-gs3]: https://github.com/giantswarm/azure-cloud-node-manager-app/compare/v1.24.18-gs2...v1.24.18-gs3
