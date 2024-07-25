@@ -31,7 +31,6 @@ spec:
         - --use-instance-metadata=true
         - --wait-routes=true
         - --node-name=$(K8S_NODE_NAME)
-        - --logtostderr=true
         - --v=2
         env:
         - name: K8S_NODE_NAME
