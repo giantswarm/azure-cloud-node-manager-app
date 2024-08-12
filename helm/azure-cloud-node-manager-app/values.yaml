@@ -4,7 +4,7 @@ serviceType: managed
 image:
   registry: gsoci.azurecr.io
   name: giantswarm/azure-cloud-node-manager
-  tag: v1.26.22
+  tag: v1.27.18
 
 resources:
   limits:
