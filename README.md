@@ -1,10 +1,7 @@
-[![CircleCI](https://circleci.com/gh/giantswarm/azure-cloud-node-manager-app/tree/main.svg?style=svg)](https://circleci.com/gh/giantswarm/azure-cloud-node-manager-app/tree/main) [![Docker Repository on Quay](https://quay.io/repository/giantswarm/azure-cloud-node-manager/status "Docker Repository on Quay")](https://quay.io/repository/giantswarm/azure-cloud-node-manager)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/giantswarm/azure-cloud-node-manager-app.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/giantswarm/azure-cloud-node-manager-app)
 
 # azure-cloud-node-manager-app
 
-This is the `azure-cloud-node-manager` App.
-
-It is used in Azure clusters in place of in-tree cloud provider controller manager.
+This app is used in Azure clusters in place of the in-tree cloud provider node manager.
 
 See https://github.com/kubernetes-sigs/cloud-provider-azure for details.
-
