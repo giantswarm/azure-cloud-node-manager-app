@@ -4,7 +4,7 @@ serviceType: managed
 image:
   registry: gsoci.azurecr.io
   name: giantswarm/azure-cloud-node-manager
-  tag: v1.30.6
+  tag: v1.30.13
 
 controller:
   workloadIdentity:
