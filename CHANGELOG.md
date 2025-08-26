@@ -7,6 +7,10 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Changed
+
+- Update PolicyExceptions apiVersion to v2.
+
 ## [1.30.14-gs1] - 2025-08-23
 
 ### Changed
