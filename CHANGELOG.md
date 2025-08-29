@@ -7,6 +7,8 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+## [1.30.15] - 2025-08-29
+
 ### Changed
 
 - Update PolicyExceptions apiVersion to v2.
@@ -175,7 +177,8 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 - Relax tolerations to make scheduling happen as soon as possible.
 ## [1.1.8-gs1] - 2022-03-14
 
-[Unreleased]: https://github.com/giantswarm/azure-cloud-node-manager-app/compare/v1.30.14-gs1...HEAD
+[Unreleased]: https://github.com/giantswarm/azure-cloud-node-manager-app/compare/v1.30.15...HEAD
+[1.30.15]: https://github.com/giantswarm/azure-cloud-node-manager-app/compare/v1.30.14-gs1...v1.30.15
 [1.30.14-gs1]: https://github.com/giantswarm/azure-cloud-node-manager-app/compare/v1.30.13-gs1...v1.30.14-gs1
 [1.30.13-gs1]: https://github.com/giantswarm/azure-cloud-node-manager-app/compare/v1.30.6-gs1...v1.30.13-gs1
 [1.30.6-gs1]: https://github.com/giantswarm/azure-cloud-node-manager-app/compare/v1.29.8-gs1...v1.30.6-gs1
