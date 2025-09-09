@@ -7,6 +7,10 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+### Changed
+
+- Switch to semver-compatible release name.
+
 ## [1.32.7-gs1] - 2025-09-04
 
 ### Changed
@@ -115,8 +119,8 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 ### Changed
 
 - Upgrade `Chart.yaml` `apiVersion` from `v1` to `v2`
-  - this is required to get `capabilities` conditional to work with `HelmReleases` 
-  
+  - this is required to get `capabilities` conditional to work with `HelmReleases`
+
 ## [1.24.18-gs1] - 2023-05-03
 
 ### Changed
@@ -139,7 +143,7 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 ### Changed
 
 - Push to default catalog.
- 
+
 ## [1.23.17-gs1] - 2022-08-11
 
 ### Changed
