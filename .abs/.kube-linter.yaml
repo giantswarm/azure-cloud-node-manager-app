@@ -1,0 +1,11 @@
+checks:
+  exclude:
+    # Cloud node managers require hostNetwork to communicate with cloud APIs
+    - "host-network"
+    # Cloud node managers may need elevated privileges
+    - "run-as-non-root"
+    # Cloud node managers may need to write to the filesystem
+    - "no-read-only-root-fs"
+    # ServiceAccount exists in rbac.yaml but KubeLinter can't resolve helm templates
+    - "non-existent-service-account"
+
