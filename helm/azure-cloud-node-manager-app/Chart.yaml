@@ -10,7 +10,7 @@ annotations:
   io.giantswarm.application.team: phoenix
   ui.giantswarm.io/logo: https://s.giantswarm.io/app-icons/azure/1/dark.svg
 restrictions:
-  clusterSingleton: "true"
+  clusterSingleton: true
   fixedNamespace: kube-system
-  gpuInstances: "false"
+  gpuInstances: false
   compatibleProviders: [azure]
