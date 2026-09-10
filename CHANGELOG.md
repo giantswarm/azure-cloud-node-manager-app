@@ -7,6 +7,8 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 
 ## [Unreleased]
 
+## [2.2.0] - 2026-09-10
+
 ### Changed
 
 - Chart: Update to upstream v1.36.5.
@@ -217,7 +219,8 @@ and this project's packages adheres to [Semantic Versioning](http://semver.org/s
 - Relax tolerations to make scheduling happen as soon as possible.
 ## [1.1.8-gs1] - 2022-03-14
 
-[Unreleased]: https://github.com/giantswarm/azure-cloud-node-manager-app/compare/v2.1.0...HEAD
+[Unreleased]: https://github.com/giantswarm/azure-cloud-node-manager-app/compare/v2.2.0...HEAD
+[2.2.0]: https://github.com/giantswarm/azure-cloud-node-manager-app/compare/v2.1.0...v2.2.0
 [2.1.0]: https://github.com/giantswarm/azure-cloud-node-manager-app/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/giantswarm/azure-cloud-node-manager-app/compare/v1.32.7...v2.0.0
 [1.32.7]: https://github.com/giantswarm/azure-cloud-node-manager-app/compare/v1.32.7-gs1...v1.32.7
