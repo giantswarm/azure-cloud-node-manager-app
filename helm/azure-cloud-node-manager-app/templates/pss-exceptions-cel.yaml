@@ -1,0 +1,48 @@
+{{- if and .Values.deployPolicyExceptions .Values.kyvernoPolicyExceptions.enabled }}
+apiVersion: policies.kyverno.io/v1
+kind: PolicyException
+metadata:
+  name: {{ .Values.name }}-exceptions
+  namespace: {{ .Release.Namespace }}
+  annotations:
+    "helm.sh/hook": "pre-install,pre-upgrade"
+spec:
+  policyRefs:
+  - name: require-run-as-nonroot
+    kind: ValidatingPolicy
+  - name: restrict-seccomp-strict
+    kind: ValidatingPolicy
+  - name: disallow-capabilities-strict
+    kind: ValidatingPolicy
+  - name: require-run-as-non-root-user
+    kind: ValidatingPolicy
+  - name: disallow-host-namespaces
+    kind: ValidatingPolicy
+  # require-non-root-groups is missing from the legacy exception. It is excepted
+  # because the azure-cloud-node-manager DaemonSet fails it (it runs as group 0).
+  - name: require-non-root-groups
+    kind: ValidatingPolicy
+  # require-pod-probes is a supplemental policy and usually not enabled. It is
+  # excepted because the azure-cloud-node-manager DaemonSet fails it when the
+  # policy is enforced.
+  - name: require-pod-probes
+    kind: ValidatingPolicy
+  # require-ro-rootfs is a supplemental policy and usually not enabled. It is
+  # excepted because the azure-cloud-node-manager DaemonSet fails it when the
+  # policy is enforced.
+  - name: require-ro-rootfs
+    kind: ValidatingPolicy
+  # restrict-sa-automount-sa-token is a supplemental policy and usually not
+  # enabled. It is excepted because the azure-cloud-node-manager ServiceAccount
+  # fails it when the policy is enforced.
+  - name: restrict-sa-automount-sa-token
+    kind: ValidatingPolicy
+  matchConditions:
+  - name: azure-cloud-node-manager-workloads
+    # ServiceAccount is matched for restrict-sa-automount-sa-token.
+    expression: >-
+      request.kind.kind in ['DaemonSet', 'Pod', 'ServiceAccount'] &&
+      request.namespace == '{{ .Release.Namespace }}' &&
+      has(object.metadata.name) &&
+      (object.metadata.name == '{{ .Values.name }}' || object.metadata.name.startsWith('{{ .Values.name }}-'))
+{{- end }}
