@@ -1,9 +1,11 @@
-{{- if .Values.deployPolicyExceptions }}
+{{- if and .Values.deployPolicyExceptions .Values.kyvernoPolicyExceptions.enabled .Values.kyvernoPolicyExceptions.legacy.enabled }}
 apiVersion: kyverno.io/v2
 kind: PolicyException
 metadata:
   name: {{ .Values.name }}-exceptions
   namespace: {{ .Release.Namespace }}
+  labels:
+    policy.giantswarm.io/migrated-to-cel: "true"
 spec:
   exceptions:
   - policyName: require-run-as-nonroot
